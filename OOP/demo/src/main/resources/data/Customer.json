@@ -1,0 +1,15 @@
+[ {
+  "fullName" : "Nguyen Van A",
+  "dateOfBirth" : "1990-01-01",
+  "phoneNumber" : "0123456789",
+  "customerID" : "C001",
+  "email" : "nguyenvana@example.com",
+  "createdAt" : "2026-01-10"
+}, {
+  "fullName" : "Le Thi B",
+  "dateOfBirth" : "1992-02-02",
+  "phoneNumber" : "0987654321",
+  "customerID" : "C002",
+  "email" : "Chưa có email",
+  "createdAt" : "2026-01-10"
+} ]
