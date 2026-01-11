@@ -1,0 +1,11 @@
+[ {
+  "fullName" : "Administrator",
+  "dateOfBirth" : "2000-01-01",
+  "phoneNumber" : "0999999999",
+  "staffID" : "S001",
+  "createdAt" : "2026-01-10",
+  "cccd" : "000000000000",
+  "email" : "admin@system.com",
+  "enDate" : null,
+  "isActive" : true
+} ]
