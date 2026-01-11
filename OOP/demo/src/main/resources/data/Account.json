@@ -1,8 +1,0 @@
-[ {
-  "accountID" : "A001",
-  "username" : "admin",
-  "password" : "111111",
-  "role" : "admin",
-  "ownerID" : "S001",
-  "isActive" : true
-}]
