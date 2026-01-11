@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDate;
 public class Tour {
-    public static int numberTours = 0;
     public String tourID;
     public String description;
     public String departurePoint;
@@ -15,8 +14,8 @@ public class Tour {
     // constructor rỗng
     public Tour(){};
     // Constructor khi tạo tour mới
-    public Tour(String description, String departurePoint, double pricePerPerson, int maxPeople, String startDateString, String endDateString, int bookedPeople) {
-        this.tourID = "T" + String.format("%03d", ++numberTours);
+    public Tour(String ID,String description, String departurePoint, double pricePerPerson, int maxPeople, String startDateString, String endDateString, int bookedPeople) {
+        this.tourID = ID;
         this.description = description;
         this.departurePoint = departurePoint;
         this.pricePerPerson = pricePerPerson;

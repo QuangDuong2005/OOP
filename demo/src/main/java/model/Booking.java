@@ -10,7 +10,6 @@ public class Booking {
     public String createdBy; // ID nhân viên tạo booking
     public double totalAmount;
     public double debtAmount;
-    public static int numberBookings = 0;   
     public String status;
 
     // Huỷ booking / hoàn tiền
@@ -27,7 +26,7 @@ public class Booking {
         }
         if (this.debtAmount == 0) {
             this.status = "Đã thanh toán";
-        } else if (this.totalAmount - this.debtAmount >= 1000000) {
+        } else if (this.totalAmount - this.debtAmount >= this.totalAmount*0.1) {
             this.status = "Đã đặt cọc";
         } else {
             this.status = "Đang khởi tạo";
@@ -37,8 +36,8 @@ public class Booking {
     // Contructor rỗng
     public Booking(){};
     // Constructor khi tạo booking mới
-    public Booking(String customerID, String tourID, int numberOfPeople, String createdBy, double totalAmount, double debtAmount) {
-        this.bookingID = "B" + String.format("%03d", ++numberBookings);
+    public Booking(String ID, String customerID, String tourID, int numberOfPeople, String createdBy, double totalAmount, double debtAmount) {
+        this.bookingID = ID;
         this.customerID = customerID;
         this.tourID = tourID;
         this.numberOfPeople = numberOfPeople;
@@ -52,7 +51,7 @@ public class Booking {
         this.cancellationReason = null;
         this.cancellationPenalty = 0;
         this.refundAmount = 0;
-        this.status = calculateStatus();
+        this.status = this.calculateStatus();
     }
     // Getters
     public String getBookingID() {
@@ -142,8 +141,8 @@ public class Booking {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-    public void setBookingDate(LocalDate bookingDate) {
-        this.bookingDate = bookingDate;
+    public void setBookingDate(String bookingDateString) {
+        this.bookingDate = LocalDate.parse(bookingDateString);
     }
     public void setTourID(String tourID) {
         this.tourID = tourID;

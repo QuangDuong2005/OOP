@@ -29,28 +29,10 @@ public class ReportRepository {
             File file = DataStore.getDataFile(FILE_NAME);
             List<Report> reports = mapper.readValue(file,
                     mapper.getTypeFactory().constructCollectionType(List.class, Report.class));
-            syncAutoIncrementCounter(reports);
             return reports;
         } catch (IOException e) {
             return new ArrayList<>();
         }
     }
 
-    public static void appendToFile(Report r) {
-        List<Report> reports = loadFromFile();
-        reports.add(r);
-        saveToFile(reports);
-    }
-
-    private static void syncAutoIncrementCounter(List<Report> reports) {
-        int max = 0;
-        for (Report r : reports) {
-            if (r == null || r.reportId == null) continue;
-            try {
-                String digits = r.reportId.replaceAll("\\D", "");
-                if (!digits.isEmpty()) max = Math.max(max, Integer.parseInt(digits));
-            } catch (Exception ignore) {}
-        }
-        Report.numberReports = Math.max(Report.numberReports, max);
-    }
 }

@@ -29,7 +29,6 @@ public class CustomerRepository {
             File file = DataStore.getDataFile(FILE_NAME);
             List<Customer> customers = mapper.readValue(file,
                     mapper.getTypeFactory().constructCollectionType(List.class, Customer.class));
-            syncAutoIncrementCounter(customers);
             return customers;
         } catch (IOException e) {
             System.err.println("Error loading customers from file: " + e.getMessage());
@@ -37,21 +36,4 @@ public class CustomerRepository {
         }
     }
 
-    public static void appendCustomerToFile(Customer newCustomer) {
-        List<Customer> customers = loadCustomersFromFile();
-        customers.add(newCustomer);
-        saveCustomersToFile(customers);
-    }
-
-    private static void syncAutoIncrementCounter(List<Customer> customers) {
-        int max = 0;
-        for (Customer c : customers) {
-            if (c == null || c.customerID == null) continue;
-            try {
-                String digits = c.customerID.replaceAll("\\D", "");
-                if (!digits.isEmpty()) max = Math.max(max, Integer.parseInt(digits));
-            } catch (Exception ignore) {}
-        }
-        Customer.numberCustomers = Math.max(Customer.numberCustomers, max);
-    }
 }

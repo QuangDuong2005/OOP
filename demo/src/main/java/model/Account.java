@@ -2,8 +2,6 @@ package model;
 
 public class Account {
     // đếm số tài khoản đã tạo
-    public static int numberAccounts = 0;
-    public String accountID;
     public String username;
     public String password;
     public String role; // Vai trò: "admin", "manager", "staff", "accountant"
@@ -13,7 +11,6 @@ public class Account {
     public Account(){};
     // Constructor khi tạo tài khoản mới
     public Account(String username, String password, String role, String ownerID) {
-        this.accountID = "A" + String.format("%03d", ++numberAccounts);
         this.username = username;
         this.password = password;
         this.role = role;
@@ -21,9 +18,6 @@ public class Account {
         this.isActive = true;
     }
     // Getters
-    public String getAccountID() {
-        return accountID;
-    }
     public String getUsername() {
         return username;
     }

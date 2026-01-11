@@ -29,7 +29,6 @@ public class AccountRepository {
             File file = DataStore.getDataFile(FILE_NAME);
             List<Account> accounts = mapper.readValue(file,
                     mapper.getTypeFactory().constructCollectionType(List.class, Account.class));
-            syncAutoIncrementCounter(accounts);
             return accounts;
         } catch (IOException e) {
             System.err.println("Error loading accounts from file: " + e.getMessage());
@@ -37,21 +36,4 @@ public class AccountRepository {
         }
     }
 
-    public static void appendAccountToFile(Account newAccount) {
-        List<Account> accounts = loadAccountsFromFile();
-        accounts.add(newAccount);
-        saveAccountsToFile(accounts);
-    }
-
-    private static void syncAutoIncrementCounter(List<Account> accounts) {
-        int max = 0;
-        for (Account a : accounts) {
-            if (a == null || a.accountID == null) continue;
-            try {
-                String digits = a.accountID.replaceAll("\\D", "");
-                if (!digits.isEmpty()) max = Math.max(max, Integer.parseInt(digits));
-            } catch (Exception ignore) {}
-        }
-        Account.numberAccounts = Math.max(Account.numberAccounts, max);
-    }
 }

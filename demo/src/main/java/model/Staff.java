@@ -2,10 +2,10 @@ package model;
 
 import java.time.LocalDate;
 public class Staff extends Person {
-    public static int numberStaff = 0;
     public String staffID;
     public LocalDate createdAt;
-    public String cccd; // Vai trò: Admin, Manager, Sale, Accountant
+    public String cccd; 
+    public String role;// Vai trò: 
     public String email;
     public LocalDate enDate;
     public boolean isActive; // Trạng thái: Đang làm việc hay đã nghỉ
@@ -20,14 +20,15 @@ public class Staff extends Person {
     // constructor rỗng
     public Staff(){};
     // Constructor khi tạo nhân viên mới
-    public Staff(String fullName, String dobString, String phoneNumber, String CCCD, String email) {
+    public Staff(String ID,String fullName, String dobString, String phoneNumber, String CCCD, String email, String role) {
         super(fullName, dobString, phoneNumber);
-        this.staffID = "S" + String.format("%03d", ++numberStaff);
+        this.staffID = ID;
         this.createdAt = LocalDate.now();
         this.cccd = CCCD;
         this.email = email;
         this.isActive = true;
         this.enDate = null;
+        this.role = role;
     }
     // Getters
     public String getStaffID() {
@@ -51,6 +52,9 @@ public class Staff extends Person {
         }
         return this.enDate.toString();
     }
+    public String getRole(){
+        return role;
+    }
     //setters
     public void setCccd(String CCCD) {
         this.cccd = CCCD;
@@ -73,5 +77,8 @@ public class Staff extends Person {
         }else{
             this.enDate = LocalDate.parse(enDateString);
         }
+    }
+    public void setRole(String role){
+        this.role = role;
     }
 }
