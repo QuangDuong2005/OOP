@@ -1,0 +1,9 @@
+[
+  {
+    "username": "manager",
+    "password": "123456",
+    "role": "Manager",
+    "ownerID": "S000",
+    "isActive": true
+  }
+]
