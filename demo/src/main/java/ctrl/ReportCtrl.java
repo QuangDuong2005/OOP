@@ -104,7 +104,7 @@ public class ReportCtrl {
 
                     for (Invoice i : invoices) {
                         if (i != null && i.getCreatedAt() != null) {
-                            LocalDate iDate = i.getCreatedAt();
+                            LocalDate iDate = LocalDate.parse(i.getCreatedAt());
                             if (!iDate.isBefore(from) && !iDate.isAfter(to)) {
                                 w.write(i.getInvoiceID() + "," + 
                                         i.getBookingID() + "," + 
