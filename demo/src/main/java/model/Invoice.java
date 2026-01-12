@@ -6,7 +6,7 @@ public class Invoice {
     public String bookingID;    
     public LocalDate createdAt;
     public double totalAmount;
-
+    public String createdByStaffId;
     // Audit
     public LocalDate lastModifiedAt;
     public String modifiedBy; // staffId
@@ -14,12 +14,13 @@ public class Invoice {
     // Constructor rỗng
     public Invoice(){};
     // Constructor khi tạo hóa đơn mới
-    public Invoice(String ID, String bookingID, double totalAmount) {
+    public Invoice(String ID, String bookingID, double totalAmount, String createdByStaffId) {
         // Mã hóa đơn là theo định dang I001, I002, ...
         this.invoiceID = ID; 
         this.bookingID = bookingID;
         this.createdAt = LocalDate.now();
         this.totalAmount = totalAmount;
+        this.createdByStaffId = createdByStaffId;
 
         this.lastModifiedAt = null;
         this.modifiedBy = null;
@@ -50,7 +51,13 @@ public class Invoice {
     public String getNote() {
         return note;
     }
-    // Setters 
+    public String getCreatedByStaffId(){
+        return createdByStaffId;
+    }
+    // Setters
+    public void setCreatedByStaffId(String createdByStaffId){
+        this.createdByStaffId =createdByStaffId;
+    }
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }

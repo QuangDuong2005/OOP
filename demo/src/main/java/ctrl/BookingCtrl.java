@@ -139,9 +139,48 @@ public class BookingCtrl {
                 break;
             }
         }
+    }
+    // Hàm hủy tự tính VD hủy do công ty
+    public void cancelBooking(String bookingID, String tourID, String reason, double penalty, double refund) throws IllegalStateException {
+        for (Booking booking: bookings){
+            if ((booking.getBookingID()).equals(bookingID)){
+                Tour t = null;
+                List<Tour> tours = TourRepository.loadToursFromFile();
+                // Tìm tour đó 
+                for (Tour tour: tours){
+                    if ((tour.getTourID()).equals(tourID)){
+                        t = tour;
+                        break;
+                    }
+                }
+                if (booking.isCancelled) {
+                    throw new IllegalStateException("Booking đã bị hủy trước đó");
+                }
+                LocalDate today = LocalDate.now();
+                if (!today.isBefore(t.startDate)) {
+                    throw new IllegalStateException("Không thể hủy khi tour đã/đang khởi hành");
+                }
+
+                booking.isCancelled = true;
+                booking.cancelledAt = today;
+                booking.cancellationReason = reason;
+                booking.cancellationPenalty = penalty;
+                booking.refundAmount = refund;
+                booking.calculateStatus();
+
+                // Viết lại số chỗ còn trống vào tour
+                t.setBookedPeople(t.getBookedPeople()-booking.getNumberOfPeople());
+                BookingRepository.saveBookingsToFile(bookings);
+                // Gửi yêu cầu cho 
+                List<BookingCancelRequest> reqs = BookingCancelRequestRepository.loadFromFile();
+                BookingCancelRequest req = new BookingCancelRequest(bookingID, refund, penalty, booking.getCreatedBy(),reason);
+                reqs.add(req);
+                BookingCancelRequestRepository.saveToFile(reqs);
+                break;
+            }
+        }
 
     }
-
 
     // Hàm tính phạt
     public static double cancellationPenaltyRate(long daysToStart) {

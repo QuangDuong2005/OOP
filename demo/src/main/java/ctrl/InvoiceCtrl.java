@@ -11,7 +11,7 @@ import repository.InvoiceRepository;
 public class InvoiceCtrl {
     List<Invoice> invoices = InvoiceRepository.loadInvoicesFromFile();
     // Lập hóa đơn (thanh toán)
-    public void createInvoice(String bookingID, double paidAmount, String invoiceID) {
+    public void createInvoice(String bookingID, double paidAmount, String invoiceID, String staffID) {
         List<Booking> bookings = BookingRepository.loadBookingsFromFile();
         for (Booking booking:bookings){
             if ((booking.getBookingID()).equals(bookingID)){
@@ -28,7 +28,7 @@ public class InvoiceCtrl {
                 booking.calculateStatus();
 
                 // Create invoice
-                Invoice newInvoice = new Invoice(invoiceID,booking.getBookingID(), paidAmount);
+                Invoice newInvoice = new Invoice(invoiceID,booking.getBookingID(), paidAmount, staffID);
                 invoices.add(newInvoice);
                 InvoiceRepository.saveInvoicesToFile(invoices);
 
