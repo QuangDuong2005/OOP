@@ -1,0 +1,26 @@
+[
+  {
+    "requestId": "BK-2024-088",
+    "createdByStaffId": "STAFF_TUAN",
+    "createdByRole": "Staff",
+    "reason": "Hủy tour do bão số 3, hoàn 100% cho khách hàng",
+    "status": "PENDING",
+    "refundAmount": 8000000.0,
+    "penaltyAmount": 0.0,
+    "createdAt": "2024-06-15",
+    "processedByStaffId": null,
+    "managerNote": null
+  },
+  {
+    "requestId": "BK-2024-099",
+    "createdByStaffId": "STAFF_LINH",
+    "createdByRole": "Staff",
+    "reason": "Khách muốn hủy vé giờ chót không lý do chính đáng",
+    "status": "PENDING",
+    "refundAmount": 0.0,
+    "penaltyAmount": 2000000.0,
+    "createdAt": "2024-06-10",
+    "processedByStaffId": null,
+    "managerNote": null
+  }
+]

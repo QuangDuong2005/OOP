@@ -1,0 +1,24 @@
+[
+  {
+    "requestId": "INV-9902",
+    "createdByStaffId": "ACC_LAN",
+    "createdByRole": "Accountant",
+    "reason": "Nhập sai mức chiết khấu khách VIP (từ 10% thành 5%)",
+    "status": "PENDING",
+    "newAmount": 12500000.0,
+    "createdAt": null,
+    "processedByStaffId": null,
+    "managerNote": null
+  },
+  {
+    "requestId": "INV-9905",
+    "createdByStaffId": "ACC_LAN",
+    "createdByRole": "Accountant",
+    "reason": "Khách bỏ bớt dịch vụ đưa đón sân bay 2 chiều",
+    "status": "APPROVED",
+    "newAmount": 5500000.0,
+    "createdAt": "2024-06-14",
+    "processedByStaffId": "MGR001",
+    "managerNote": "Đã xác nhận với bộ phận vận chuyển"
+  }
+]
