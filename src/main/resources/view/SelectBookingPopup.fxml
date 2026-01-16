@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10.0" prefWidth="550.0" style="-fx-padding: 15; -fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SelectBookingController">
+    <Label text="CHỌN BOOKING VÀ NHẬP THÔNG TIN THANH TOÁN" style="-fx-font-weight: bold; -fx-font-size: 14; -fx-text-fill: #8e44ad;" />
+    
+    <TableView fx:id="tblPendingBookings" prefHeight="200.0">
+        <columns>
+            <TableColumn fx:id="colBookingID" text="Mã Booking" prefWidth="120" />
+            <TableColumn fx:id="colCustomer" text="Mã Khách" prefWidth="120" />
+            <TableColumn fx:id="colPrice" text="Tổng tiền" prefWidth="130" />
+            <TableColumn fx:id="colDebt" text="Còn nợ" prefWidth="130" />
+        </columns>
+    </TableView>
+
+    <GridPane hgap="10" vgap="10" style="-fx-padding: 10; -fx-background-color: #f9f9f9; -fx-background-radius: 5;">
+        <columnConstraints>
+            <ColumnConstraints minWidth="100" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        
+        <Label text="Mã Hóa đơn:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TextField fx:id="txtInvoiceID" promptText="VD: INV001" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+        
+        <Label text="Số tiền trả:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <TextField fx:id="txtPaidAmount" promptText="Nhập số tiền muốn thanh toán..." GridPane.rowIndex="1" GridPane.columnIndex="1" />
+        
+        <Label text="Ghi chú:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="txtNote" promptText="Ghi chú thêm (nếu có)..." GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Hủy bỏ" onAction="#handleCancel" 
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 5 15;" />
+        <Button text="Xác nhận &amp; Tạo HĐ" onAction="#confirmCreate" 
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 5 15;" />
+    </HBox>
+</VBox>

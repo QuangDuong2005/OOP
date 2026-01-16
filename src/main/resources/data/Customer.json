@@ -1,0 +1,34 @@
+[
+  {
+    "customerID": "C001",
+    "fullName": "Nguyễn Quang Dương",
+    "dateOfBirth": "2003-01-15",
+    "phoneNumber": "0987654321",
+    "email": "duong.nq@example.com",
+    "createdAt": "2023-10-01"
+  },
+  {
+    "customerID": "C002",
+    "fullName": "Trần Thị Mai",
+    "dateOfBirth": "1995-08-20",
+    "phoneNumber": "0912345678",
+    "email": "mai.tran@example.com",
+    "createdAt": "2023-11-15"
+  },
+  {
+    "customerID": "C003",
+    "fullName": "Lê Văn Hùng",
+    "dateOfBirth": "1990-12-05",
+    "phoneNumber": "0909090909",
+    "email": "Chưa có email",
+    "createdAt": "2024-01-10"
+  },
+  {
+    "customerID": "C004",
+    "fullName": "Phạm Minh Tuấn",
+    "dateOfBirth": "2000-05-30",
+    "phoneNumber": "0357159486",
+    "email": "tuan.pm@example.com",
+    "createdAt": "2024-01-12"
+  }
+]

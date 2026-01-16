@@ -1,0 +1,19 @@
+[ {
+  "username" : "manager",
+  "password" : "123456",
+  "role" : "Manager",
+  "ownerID" : "S000",
+  "isActive" : true
+}, {
+  "username" : "sale",
+  "password" : "123456",
+  "role" : "Sale",
+  "ownerID" : "S001",
+  "isActive" : true
+}, {
+  "username" : "accountant",
+  "password" : "123456",
+  "role" : "Accountant",
+  "ownerID" : "S002",
+  "isActive" : true
+} ]
