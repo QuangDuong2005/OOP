@@ -50,7 +50,7 @@ Hệ thống được phân quyền chặt chẽ cho 3 vai trò: Manager (Quản
 src/main/java
 ├── app             # Chua ham main khoi chay (AppLauncher, MainApp)
 ├── controller      # Xu ly su kien giao dien (JavaFX Controllers)
-├── ctrl            # Xu ly nghiep vu logic (Business Logic Layers)
+├── service         # Xu ly nghiep vu logic (Business Logic Layers)
 ├── model           # Cac lop thuc the (Account, Booking, Tour, Staff...)
 ├── repository      # Lop giao tiep voi file JSON (Doc/Ghi du lieu)
 ├── util            # Tien ich (DataStore, UserSession, JsonMapperFactory)
